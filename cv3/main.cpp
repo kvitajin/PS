@@ -49,19 +49,32 @@ void generateWords(std::vector<std::string> &words, int lenght=4){
     }
 }
 
-void makeHashes(std::vector<std::string> &words){
+std::map<std::string, std::string> makeHashes(std::vector<std::string> &words){
     std::map<std::string, std::string> final;
     char* tmp, md;
     const unsigned char *d;
 
     char pokus[]= "ahoj";
     unsigned char vyflusniSem[AES_BLOCK_SIZE];
-    std::stringstream s;
 
-    MD5((unsigned char*)pokus, strlen(pokus), (unsigned char *) &vyflusniSem);
-    for (unsigned char i : vyflusniSem) {
-        s << std::hex << std::setw(2) << std::setprecision(2) << (int)i;
+    for (auto & word : words) {
+        std::stringstream s;
+        MD5((unsigned char*)word.c_str(), strlen(word.c_str()), (unsigned char *) &vyflusniSem);
+        for (unsigned char j : vyflusniSem) {
+            s << std::hex << std::setw(2) << std::setprecision(2) << (unsigned int)j;
+        }
+//        std::cout<<s.str()<<std::endl;
+        final[word]=s.str();
+        s.flush();
     }
+    return final;
+
+
+
+//    MD5((unsigned char*)pokus, strlen(pokus), (unsigned char *) &vyflusniSem);
+//    for (unsigned char i : vyflusniSem) {
+//        s << std::hex << std::setw(2) << std::setprecision(2) << (int)i;
+//    }
 //    std::cout << s.str();
 //    s.flush();
 
@@ -74,10 +87,6 @@ void makeHashes(std::vector<std::string> &words){
 //        final[words[i]]=s.str();
 //s.flush();
 //tmp="";
-
-
-
-
 
 }
 
