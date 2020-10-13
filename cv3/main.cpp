@@ -51,10 +51,6 @@ void generateWords(std::vector<std::string> &words, int lenght=4){
 
 std::map<std::string, std::string> makeHashes(std::vector<std::string> &words){
     std::map<std::string, std::string> final;
-    char* tmp, md;
-    const unsigned char *d;
-
-    char pokus[]= "ahoj";
     unsigned char vyflusniSem[AES_BLOCK_SIZE];
 
     for (auto & word : words) {
@@ -63,40 +59,24 @@ std::map<std::string, std::string> makeHashes(std::vector<std::string> &words){
         for (unsigned char j : vyflusniSem) {
             s << std::hex << std::setw(2) << std::setprecision(2) << (unsigned int)j;
         }
-//        std::cout<<s.str()<<std::endl;
         final[word]=s.str();
-        s.flush();
     }
     return final;
-
-
-
-//    MD5((unsigned char*)pokus, strlen(pokus), (unsigned char *) &vyflusniSem);
-//    for (unsigned char i : vyflusniSem) {
-//        s << std::hex << std::setw(2) << std::setprecision(2) << (int)i;
-//    }
-//    std::cout << s.str();
-//    s.flush();
-
-
-//            std::cout << std::hex << std::setw(2) << std::setprecision(2) << tmp <<" ";
-//        printf("%2.2x", result[i]);
-//}
-//        std::cout<< tmp<< std::endl;
-//    std::cout<< s.str()<<std::endl;
-//        final[words[i]]=s.str();
-//s.flush();
-//tmp="";
-
 }
 
 
+void printMap(std::map<std::string, std::string>& wordMap){
+    for(auto & it : wordMap){
+        std::cout << it.first << " " << it.second  << "\n";
+    }
+}
+
 int main() {
     std::vector<std::string> words;
+    std::map<std::string, std::string> hashMap;
     generateWords(words, 3);
-    makeHashes(words);
-//    for (auto & word : words) {
-//        std::cout << word << std::endl;
-//    }
+    hashMap=makeHashes(words);
+    printMap(hashMap);
+
     return 0;
 }
