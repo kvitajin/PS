@@ -6,31 +6,15 @@
 
 #IncludeRegexTransform: 
 
-/home/kvitajin/CLionProjects/ps/cv3/main.cpp
+/home/kvitajin/CLionProjects/ps/cv2/main.cpp
+array
+-
 iostream
 -
-vector
+cstdint
 -
-map
--
-openssl/md5.h
+iostream
 -
 iomanip
--
-cstring
--
-cmath
--
-zconf.h
--
-wait.h
--
-thread
--
-fstream
--
-algorithm
--
-mutex
 -
 

@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/cv3.dir/main.cpp.o  -o cv3 
+/usr/bin/c++   -lssl -lcrypto -pthread -g   CMakeFiles/cv3.dir/main.cpp.o  -o cv3 
