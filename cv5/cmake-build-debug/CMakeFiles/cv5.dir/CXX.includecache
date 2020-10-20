@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/kvitajin/CLionProjects/vsb/ps/cv5/main.cpp
+iostream
+-
+vector
+-
+cmath
+-
+openssl/md5.h
+-
+cstring
+-
+iomanip
+-
+zconf.h
+-
+wait.h
+-
+
