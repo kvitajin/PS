@@ -6,11 +6,19 @@
 #include <iomanip>
 #include <zconf.h>
 #include <wait.h>
+#include <chrono>
+#include <fstream>
 
 #define LETTERS_SIZE 90
 #define AES_BLOCK_SIZE 16
 
-
+/**********************************************************************************************************************/
+/**Program jde y mainu do funkce fork headeder, ktera ridi jednotliva vlakna, nasledne fork controller, ktery se stara*/
+/** o jedno konkretni vlakno, ktere je mu prideleno, odtamtud je volan generateString, kterz vytvori dany retezec a  **/
+/** a pokud je parametr makeHash true, tak se i zahashuje. Header je jeste obalen funkci makeCSV, ktera jen prida    **/
+/** veci potrebne pro mereni casu a ukladani do souboru. Ac jsem program od zakladu prepsal tak, aby byl (dle meho)  **/
+/** co nejrychlejsi a vymenil i thready za forky, tak vysledek je bohuzel presne opacny.                             **/
+/**********************************************************************************************************************/
 
 std::string LETTERS [LETTERS_SIZE]={"a", "á", "b", "c", "č", "d", "ď", "e", "é", "ě", "f", "g", "h", "ch", "i", "í", "j", "k",
                                     "l", "m", "n", "ň", "o", "ó", "p", "q", "r", "ř", "s", "š", "t", "ť", "u", "v", "w", "x",
@@ -44,14 +52,13 @@ std::string makeMD5(std::string &word){
  * @param makeHash      jestli ma dane slova hashovat
  * @param print         jestli ma dany vysledek (slovo nebo hash) vypsat
  */
-
 void generateString(int wordPosition, int wordLen, bool makeHash, bool print){
-    int tmp;
+    int tmp, tmpWord=wordPosition;
     std::string word;
     for (int i = 0; i < wordLen; ++i) {                         ///princip podobny prevodu mezi hex a dec soustavou
-        tmp= wordPosition % LETTERS_SIZE;
+        tmp= tmpWord % LETTERS_SIZE;
         word+=LETTERS[tmp];
-        wordPosition/= LETTERS_SIZE;
+        tmpWord/= LETTERS_SIZE;
     }
 
     if (makeHash && print){
@@ -65,6 +72,7 @@ void generateString(int wordPosition, int wordLen, bool makeHash, bool print){
     }
 
 }
+
 /**
  * pocita celkovy pocet slov, pomocna funkce
  * @param numberOfLetters
@@ -73,6 +81,7 @@ void generateString(int wordPosition, int wordLen, bool makeHash, bool print){
 int calculateNumberOfWords(int numberOfLetters){
     return (int)pow(LETTERS_SIZE, numberOfLetters);
 }
+
 /**
  *  ridi jedno dane vlakno
  * @param wordLen   kolik znaku ma jedno slovo
@@ -114,12 +123,35 @@ void forkHeader(int wordLen, int numberOfForks, bool makeHash, bool print){
     }
 }
 
+
+void makeCSV(int wordLen, int numberOfForks, bool makeHash, bool print){
+    std::chrono::steady_clock sc;
+    for (int wLen = 1; wLen < wordLen+1; ++wLen) {
+        std::string fileName;
+        fileName.push_back((char)wLen + 48);
+        fileName.append("znaky.csv");
+        std::ofstream output;
+        output.open(fileName);
+        output<<"FORKS\tTIME\n";
+        for (int j = 1; j < 100; ++j) {
+            auto start=sc.now();
+            forkHeader(wLen, numberOfForks, makeHash, print);
+            auto end=sc.now();
+            auto time_span = static_cast<std::chrono::duration<double>>(end - start);
+            output<<j <<"\t"<<time_span.count()<<std::endl;
+        }
+        output.close();
+    }
+}
+
+
 int main() {
-    int wordLen=3;
     bool print = false;
     bool makeHash = true;
+    int wordLen=4;
+    int numberOfForks= 100;
+    makeCSV( wordLen, numberOfForks, makeHash, print);
 
-    forkHeader( wordLen, 10, makeHash, print);
 
     return 0;
 }
