@@ -1,0 +1,1 @@
+/usr/bin/c++   -lssl -lcrypto -pthread -g   CMakeFiles/cv6.dir/main.cpp.o  -o cv6 

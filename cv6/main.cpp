@@ -2,6 +2,16 @@
 #include <string>
 #include <cstring>
 
+/**********************************************************************************************************************/
+/**Opet se jedna o program, ktery jsem musel vyrazne prepsat (kvuli absenci knihovny openssl/md5.h na skolnich pocitacich)**/
+/**ostatne ani jednou jsem neodevzdal stejny program. Po cca 8 hodinach, kdy jsem se snazil na skolnim pc rozjet lokalne **/
+/**nainstalovanou knihovnu openssl, pripadne stazenou pres brew, jsem to vzdal a sel napsat od piky, proto hezky kod **/
+/** bude k videni v cv5, ne zde. Kvuli vytezovani clusteru jsem utnul vypocet driv, abych ho neblokoval dlouho.**/
+/**********************************************************************************************************************/
+
+
+
+
 using namespace std;
 typedef union uwb {
     unsigned w;
@@ -245,14 +255,15 @@ void threadHeader(int wordLen, int numberOfForks, bool makeHash, bool print){
     for (int i = 0; i < numberOfForks; ++i) {
         if (i+1==numberOfForks){
             int lastPart = numberOfWords-i*partSize;
-            threads.push_back(std::thread(forkController,wordLen, partSize*i, lastPart, makeHash, print));
+            threads.emplace_back(forkController,wordLen, partSize*i, lastPart, makeHash, print);
         }
-        threads.push_back(std::thread(forkController,wordLen, partSize*i, partSize, makeHash, print));
+        threads.emplace_back(forkController,wordLen, partSize*i, partSize, makeHash, print);
     }
     for (std::thread & th : threads){
         if (th.joinable())
             th.join();
     }
+    threads.clear();
 }
 
 
@@ -264,7 +275,7 @@ void makeCSV(int wordLen, int numberOfForks, bool makeHash, bool print){
         fileName.append("znaky.csv");
         std::ofstream output;
         output.open(fileName);
-        output<<"FORKS\tTIME\n";
+        output<<"THREADS\tTIME\n";
         for (int j = 1; j < 100; ++j) {
             auto start=sc.now();
             threadHeader(wLen, numberOfForks, makeHash, print);
@@ -284,6 +295,7 @@ int main() {
     int wordLen=4;
     int numberOfForks= 100;
     makeCSV( wordLen, numberOfForks, makeHash, print);
+//threadHeader(wordLen, 1, makeHash, print);
 //    std::cout<<calculateNumberOfWords(8);
 }
 
