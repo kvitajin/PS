@@ -7,12 +7,8 @@
 #IncludeRegexTransform: 
 
 /home/kvitajin/CLionProjects/vsb/ps/cv6/main.cpp
-cmath
--
-string
--
-cstring
--
+md5.h
+/home/kvitajin/CLionProjects/vsb/ps/cv6/md5.h
 iostream
 -
 iomanip
@@ -30,5 +26,11 @@ fstream
 vector
 -
 thread
+-
+
+/home/kvitajin/CLionProjects/vsb/ps/cv6/md5.h
+cstring
+-
+iostream
 -
 

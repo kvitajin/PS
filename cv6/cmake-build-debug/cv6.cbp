@@ -83,6 +83,12 @@
 		<Unit filename="/home/kvitajin/CLionProjects/vsb/ps/cv6/main.cpp">
 			<Option target="cv6"/>
 		</Unit>
+		<Unit filename="/home/kvitajin/CLionProjects/vsb/ps/cv6/md5.cpp">
+			<Option target="cv6"/>
+		</Unit>
+		<Unit filename="/home/kvitajin/CLionProjects/vsb/ps/cv6/md5.h">
+			<Option target="cv6"/>
+		</Unit>
 		<Unit filename="/home/kvitajin/CLionProjects/vsb/ps/cv6/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

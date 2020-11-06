@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/cv6.dir/main.cpp.o"
+  "CMakeFiles/cv6.dir/md5.cpp.o"
   "cv6"
   "cv6.pdb"
 )
