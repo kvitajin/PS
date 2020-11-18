@@ -1,4 +1,4 @@
-/home/kvitajin/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/202.7319.72/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/kvitajin/CLionProjects/vsb/ps/cv6
--- Configuring done
--- Generating done
--- Build files have been written to: /home/kvitajin/CLionProjects/vsb/ps/cv6/cmake-build-debug
+CMake executable not found: /usr/bin/cmake Configure
+
+Cannot get compiler information:
+	Unable to create temporary file

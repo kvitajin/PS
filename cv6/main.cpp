@@ -116,7 +116,7 @@ void threadHeader(int wordLen, int numberOfForks, bool makeHash, bool print){
 
     for (std::thread & th : threads){
         if (th.joinable())
-            th.join();
+            th.join();  
     }
 
 }
