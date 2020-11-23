@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/kvitajin/CLionProjects/vsb/ps/cv6_arm/main.cpp
+md5.h
+/home/kvitajin/CLionProjects/vsb/ps/cv6_arm/md5.h
+iostream
+-
+iomanip
+-
+cmath
+-
+chrono
+-
+zconf.h
+-
+wait.h
+-
+fstream
+-
+vector
+-
+thread
+-
+
+/home/kvitajin/CLionProjects/vsb/ps/cv6_arm/md5.cpp
+md5.h
+/home/kvitajin/CLionProjects/vsb/ps/cv6_arm/md5.h
+cstdio
+-
+
+/home/kvitajin/CLionProjects/vsb/ps/cv6_arm/md5.h
+cstring
+-
+iostream
+-
+
