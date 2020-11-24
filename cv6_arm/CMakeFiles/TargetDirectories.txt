@@ -1,0 +1,3 @@
+/home/kvitajin/CLionProjects/vsb/ps/cv6_arm/CMakeFiles/rebuild_cache.dir
+/home/kvitajin/CLionProjects/vsb/ps/cv6_arm/CMakeFiles/edit_cache.dir
+/home/kvitajin/CLionProjects/vsb/ps/cv6_arm/CMakeFiles/cv6.dir
