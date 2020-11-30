@@ -21,10 +21,7 @@ int main(int argc, char** argv)
     humTem.powerUp();
     humTem.calibrate();
     preTem.powerUp();
-   for( int i =0; i < argc-1; ++i){
-	ip+=argv[i];
-   }
-	   std::cout<<ip<<std::endl;
+   
     boost::system::error_code err;
    // boost::asio::ip::address::from_string( ip, err );  
     //if ( err )
@@ -35,7 +32,7 @@ ip::udp::endpoint remote_endpoint;
 
 socket.open(ip::udp::v4());
 
-remote_endpoint = ip::udp::endpoint(ip::address::from_string(ip), 9000);
+remote_endpoint = ip::udp::endpoint(ip::address::from_string(argv[1]), 9000);
 
 
 while(1){
