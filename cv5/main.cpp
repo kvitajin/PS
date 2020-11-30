@@ -118,7 +118,7 @@ void forkHeader(int wordLen, int numberOfForks, bool makeHash, bool print){
             exit(0);
         }
         else{
-            waitpid(a, &status, 0);
+            while (waitpid(a, &status, 0)>0);
         }
     }
 }
@@ -148,7 +148,7 @@ void makeCSV(int wordLen, int numberOfForks, bool makeHash, bool print){
 int main() {
     bool print = false;
     bool makeHash = true;
-    int wordLen=4;
+    int wordLen=3;
     int numberOfForks= 100;
     makeCSV( wordLen, numberOfForks, makeHash, print);
 

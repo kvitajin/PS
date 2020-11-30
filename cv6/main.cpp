@@ -15,7 +15,7 @@ std::string LETTERS [LETTERS_SIZE]={"a", "á", "b", "c", "č", "d", "ď", "e", "
 #include <iomanip>
 #include <cmath>
 #include <chrono>
-#include <zconf.h>
+//#include <zconf.h>
 #include <wait.h>
 #include <fstream>
 #include <vector>
@@ -87,7 +87,7 @@ void forkHeader(int wordLen, int numberOfForks, bool makeHash, bool print){
     int numberOfWords = calculateNumberOfWords(wordLen);
     int partSize = floor(numberOfWords/numberOfForks);
     for (int i = 0; i < numberOfForks; ++i) {
-        int a = fork();
+        int a; //= fork();
         if (a==0){
             if (i+1==numberOfForks){
                 int lastPart = numberOfWords-i*partSize;

@@ -15,7 +15,7 @@ int main(int argc, char** argv)
     int32_t data[9];
     int32_t time;
     std::string ip;
-    
+
     HTS221 humTem("/dev/i2c-2");
     LPS25H preTem("/dev/i2c-2");
     humTem.powerUp();
@@ -23,7 +23,7 @@ int main(int argc, char** argv)
     preTem.powerUp();
    
     boost::system::error_code err;
-   // boost::asio::ip::address::from_string( ip, err );  
+   // boost::asio::ip::address::from_string( ip, err );
     //if ( err )
 //	std::cerr << err.message( ) << std::endl;
 io_service io_service;
@@ -37,7 +37,7 @@ remote_endpoint = ip::udp::endpoint(ip::address::from_string(argv[1]), 9000);
 
 while(1){
 
-    try{	
+    try{
         data[0] = (int32_t)std::time(0);
         data[1] = 221;
         data[2] = (int32_t)(1000*humTem.getTemperature());
@@ -57,13 +57,13 @@ while(1){
     catch(...){
         std::cerr << "Unknown failure occurred. Possible memory corruption" << std::endl;
     }
-	   
+
    sleep(5);
-   
+
 
 }
-	
-	
+
+
 	socket.close();
 
 
