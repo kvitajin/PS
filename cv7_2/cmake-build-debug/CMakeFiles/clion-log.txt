@@ -1,0 +1,33 @@
+/usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /tmp/tmp.uF0PbcVmcS
+CMake Error: Could not find cmake module file: CMakeDetermineLANGIAGESCompiler.cmake
+CMake Error: Error required internal CMake variable not set, cmake may not be built correctly.
+Missing variable is:
+CMAKE_LANGIAGES_COMPILER_ENV_VAR
+CMake Error: Error required internal CMake variable not set, cmake may not be built correctly.
+Missing variable is:
+CMAKE_LANGIAGES_COMPILER
+CMake Error: Could not find cmake module file: /tmp/tmp.uF0PbcVmcS/cmake-build-debug/CMakeFiles/3.10.2/CMakeLANGIAGESCompiler.cmake
+-- The CXX compiler identification is GNU 7.5.0
+-- The CUDA compiler identification is NVIDIA 10.0.130
+CMake Error at CMakeLists.txt:4 (project):
+  No CMAKE_LANGIAGES_COMPILER could be found.
+
+  Tell CMake where to find the compiler by setting the CMake cache entry
+  CMAKE_LANGIAGES_COMPILER to the full path to the compiler, or to the
+  compiler name if it is in the PATH.
+
+
+CMake Error: Could not find cmake module file: CMakeLANGIAGESInformation.cmake
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Check for working CUDA compiler: /usr/local/cuda/bin/nvcc
+-- Check for working CUDA compiler: /usr/local/cuda/bin/nvcc -- works
+-- Detecting CUDA compiler ABI info
+-- Detecting CUDA compiler ABI info - done
+CMake Error: CMAKE_LANGIAGES_COMPILER not set, after EnableLanguage
+-- Configuring incomplete, errors occurred!
+See also "/tmp/tmp.uF0PbcVmcS/cmake-build-debug/CMakeFiles/CMakeOutput.log".

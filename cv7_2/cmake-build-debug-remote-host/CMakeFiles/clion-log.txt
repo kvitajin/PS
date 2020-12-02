@@ -1,0 +1,4 @@
+CMake executable not found: /usr/bin/cmake Configure
+
+Cannot get compiler information:
+	com.intellij.ssh.SshTransportException: java.net.SocketTimeoutException: connect timed out

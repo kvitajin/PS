@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/kvitajin/CLionProjects/vsb/ps/cv7/cuda1.cu
+cuda.h
+-
+cuda_runtime.h
+-
+stdio.h
+-
+
+/home/kvitajin/CLionProjects/vsb/ps/cv7/main.cpp
+iostream
+-
+cuda1.cu
+/home/kvitajin/CLionProjects/vsb/ps/cv7/cuda1.cu
+

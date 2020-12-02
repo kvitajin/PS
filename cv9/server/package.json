@@ -1,0 +1,17 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "main.js",
+  "author": "kvitajin",
+  "license": "MIT",
+  "scripts": {
+    "start": "node main.mjs"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^3.0.3"
+  },
+  "devDependencies": {
+    "prettier": "^2.2.1"
+  }
+}

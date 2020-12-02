@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/cv6_pokus6.dir/main.cpp.o  -o cv6_pokus6 
